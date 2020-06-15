@@ -11,11 +11,7 @@ const makeTransaction = (transaction) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const canProcess = Math.random() > 0.3;
-      if (canProcess) {
-        resolve([transaction.id, delay]);
-      } else {
-        reject(delay);
-      }
+      canProcess ? resolve([transaction.id, delay]) : reject(delay);
     }, delay);
   });
 };
